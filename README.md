@@ -1,2 +1,2 @@
-LeetCode-java-
+LeetCode
 ==============
