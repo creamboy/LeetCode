@@ -9,7 +9,7 @@ class Solution:
     # @param root, a tree node
     # @return a list of integers
     def preorderTraversal(self, root):
-        stack=[None]
+        stack=[]
         preorder=[]
         temp=root
         while temp!=None:
@@ -18,5 +18,8 @@ class Solution:
                 stack.append(temp.right)
             if temp.left!=None:
                 stack.append(temp.left)
-            temp=stack.pop()
+            if len(stack)==0:
+                temp=None
+            else:
+                temp=stack.pop()
         return preorder
