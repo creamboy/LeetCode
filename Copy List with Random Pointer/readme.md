@@ -1,6 +1,8 @@
-Insertion Sort List 
+Copy List with Random Pointer 
 
-Sort a linked list using insertion sort.
+A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null.
+
+Return a deep copy of the list..
 
 Java:
 Python:
@@ -19,8 +21,4 @@ This works because original->next is nothing but copy of original and Original->
 Time Complexity: O(n)
 Auxiliary Space: O(1) 
 
-Runtime:
-Java O(n^2) Python O(n^2)
 
-Space:
-Java O(1) Python O(1)
