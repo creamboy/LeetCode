@@ -1,40 +1,51 @@
 /**
- * Definition for singly-linked list with a random pointer.
- * class RandomListNode {
- *     int label;
- *     RandomListNode next, random;
- *     RandomListNode(int x) { this.label = x; }
- * };
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; next = null; }
+ * }
+ */
+/**
+ * Definition for binary tree
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
  */
 public class Solution {
-    public RandomListNode copyRandomList(RandomListNode head) {
-        if(head==null) return head;
-        RandomListNode original=head;
-        RandomListNode newhead=new RandomListNode(0);
-        newhead.next=head;
-        while(original!=null){
-            RandomListNode copy=new RandomListNode(original.label);
-            copy.next=original.next;
-            original.next=copy;
-            original=copy.next;
+    public TreeNode sortedListToBST(ListNode head) {
+        if(head==null) return null;
+        int n=0;
+        ListNode temp=head;
+        while(temp!=null){
+            n++;
+            temp=temp.next;
         }
-        original=head;
-        while(original!=null){
-            if(original.random==null){
-                original=original.next.next;
-            }else{
-                original.next.random=original.random.next;
-                original=original.next.next;
-            }
+        Return A=ListToBST(head,n);
+        return A.t;
+    }
+    public Return ListToBST(ListNode head, int n){
+        if(n==1) return  new Return(new TreeNode(head.val), head.next);
+        Return l=ListToBST(head, n/2);
+        TreeNode root = new TreeNode(l.l.val);
+        root.left=l.t;
+        if((n-1)/2!=0){
+            Return r=ListToBST(l.l.next, (n-1)/2);
+            root.right=r.t;
+            return new Return(root, r.l);
+        }else{
+            return new Return(root, l.l.next);
         }
-        original=head;
-        RandomListNode newh =newhead;
-        while(original!=null){
-            newh.next=original.next;
-            original.next=original.next.next;
-            newh=newh.next;
-            original=original.next;
-        }
-        return newhead.next;
+    }
+}
+class Return{
+    TreeNode t;
+    ListNode l;
+    Return(TreeNode tree, ListNode list){
+        t=tree;
+        l=list;
     }
 }
