@@ -10,9 +10,10 @@ Above is a 3 x 7 grid. How many possible unique paths are there?
 
 Note: m and n will be at most 100.
 
-Java:
+Java:	m[i][j] <-> m[n-j][n-i] //First swap diagonally
+	 m[i][j] <-> matrix[n-i][j] // Second swap vertically
 Python:
-DP
+
 
 Time Complexity: O(n^2)
 Auxiliary Space: O(n) 
